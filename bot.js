@@ -117,10 +117,7 @@ function createBot() {
   }
 
   bot.on('kicked', (reason) => console.log('\x1b[33m',`[BotLog] Bot was kicked from the server. Reason: \n${reason}`, '\x1b[0m'))
-  
-  bot.on("error", (err) =>
-    console.log(`\x1b[31m[เชื่อมต่อล้มเหลว] ${err.message}\n`, "\x1b[0m")
-  );
+  bot.on('error', err => console.log(`\x1b[31m[ERROR] ${err.message}`, '\x1b[0m'))
 }
 
 createBot();
