@@ -6,13 +6,13 @@ const { GoalBlock } = require("mineflayer-pathfinder").goals;
 const config = require("./settings.json");
 
 function countDown(number) {
-  console.log("กำลังจะเชื่อมต่อเซิร์ฟเวอร์ในอีก " + number + " วินาที");
+  console.log("Is about to connect the server again in " + number + " seconds.");
   if (number > 1) {
       setTimeout(function(){
         countDown(number - 10);
       }, 10000)
   } else {
-    console.log("\nเชื่อมต่อเซิร์ฟเวอร์แล้ว\n");
+    console.log("\nConnect the server.\n");
   }
 }
 
@@ -33,10 +33,10 @@ function createBot() {
 
   bot.once("spawn", function () {
     var name = config["bot-account"]["username"];
-    console.log("\x1b[33m[บันทึก] " + name + " ได้เข้าสู่เซิร์ฟเวอร์แล้ว", "\x1b[0m");
+    console.log("\x1b[33m[BotLog] " + name + " joined to the server", "\x1b[0m");
 
     if (config.utils["auto-auth"].enabled) {
-      console.log("[แจ้งเตือน] เปิดระบบล็อคอินอัตโนมัติแล้ว");
+      console.log("[INFO] Started auto-auth module");
 
       var password = config.utils["auto-auth"].password;
       setTimeout(function () {
@@ -44,7 +44,7 @@ function createBot() {
         bot.chat(`/login ${password}`);
       }, 500);
 
-      console.log(`[ระบบล็อกอิน] ดำเนินการล็อกอินแล้ว`);
+      console.log(`[Auth] Authentification commands executed.`)
     }
 
     if (config.utils["chat-messages"].enabled) {
@@ -73,7 +73,7 @@ function createBot() {
 
     if (config.position.enabled) {
       console.log(
-        `\x1b[32m[บันทึก] Starting moving to target location (${pos.x}, ${pos.y}, ${pos.z})\x1b[0m`
+        `\x1b[32m[BotLog] Starting moving to target location (${pos.x}, ${pos.y}, ${pos.z})\x1b[0m`
       );
       bot.pathfinder.setMovements(defaultMove);
       bot.pathfinder.setGoal(new GoalBlock(pos.x, pos.y, pos.z));
@@ -95,13 +95,13 @@ function createBot() {
 
   bot.on("goal_reached", function () {
     console.log(
-      `\x1b[32m[บันทึก] Bot arrived to target location. ${bot.entity.position}\x1b[0m`
+      `\x1b[32m[BotLog] Bot arrived to target location. ${bot.entity.position}\x1b[0m`
     );
   });
 
   bot.on("death", function () {
     console.log(
-      `\x1b[33m[บันทึก] Bot has been died and was respawned ${bot.entity.position}`,
+      `\x1b[33m[BotLog] Bot has been died and was respawned ${bot.entity.position}`,
       "\x1b[0m"
     );
   });
@@ -111,7 +111,7 @@ function createBot() {
         
         // console.log("\nกำลังจะเชื่อมต่อเซิร์ฟเวอร์ในอีก");
       var rdelay = config.utils["delay"];
-      console.log("กำลังจะเชื่อมต่อเซิร์ฟเวอร์ในอีก " + rdelay + " วินาที");
+      console.log("Is about to connect the server again in " + rdelay + " seconds");
       setTimeout(function () {
         createBot();
       }, rdelay * 1000);
@@ -130,13 +130,8 @@ function createBot() {
     })
   }
 
-  bot.on("kicked", (reason) =>
-    console.log(
-      "\x1b[33m",
-      `[บันทึก] บอทโดนเตะออกจากเซิร์ฟเวอร์ด้วยเหตุผล : \n${reason}`,
-      "\x1b[0m"
-    )
-  );
+  bot.on('kicked', (reason) => console.log('\x1b[33m',`[BotLog] Bot was kicked from the server. Reason: \n${reason}`, '\x1b[0m'))
+  
   bot.on("error", (err) =>
     console.log(`\x1b[31m[เชื่อมต่อล้มเหลว] ${err.message}\n`, "\x1b[0m")
   );
