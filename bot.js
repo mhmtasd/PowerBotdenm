@@ -87,11 +87,11 @@ function createBot() {
     }
   });
 
-  // bot.on("chat", function (username, message) {
-  //   if (config.utils["chat-log"]) {
-  //     console.log(`[แชท] <${username}> ${message}`);
-  //   }
-  // });
+  bot.on("chat", function (username, message) {
+    if (config.utils["chat-log"]) {
+      console.log(`[แชท] <${username}> ${message}`);
+    }
+  });
 
   bot.on("goal_reached", function () {
     console.log(
@@ -109,12 +109,13 @@ function createBot() {
   if (config.utils["auto-reconnect"]) {
     bot.on("end", function () {
         
-        // console.log("\nกำลังจะเชื่อมต่อเซิร์ฟเวอร์ในอีก");
+      // console.log("\nกำลังจะเชื่อมต่อเซิร์ฟเวอร์ในอีก");
       var rdelay = config.utils["delay"];
       console.log("Is about to connect the server again in " + rdelay + " seconds");
       setTimeout(function () {
         createBot();
       }, rdelay * 1000);
+
       // status(config.server.ip, config.server.port, (response) => {
       //   if ((response.status == true)) {
       //     console.log("เซิร์ฟเวอร์ออนไลน์");
