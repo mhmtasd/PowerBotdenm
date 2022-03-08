@@ -1,18 +1,14 @@
 {
     "bot-account":{ 
-        "username": "_pongpang_",
+        "username": "bot",
         "password": "",
         "type": ""
     },
 
-    "reconnect":{ 
-        "delay": 60
-    },
-
     "server":{
-        "ip": "Eternitycraft.online",
+        "ip": "127.0.0.1",
         "port": 25565,
-        "version": "1.17.1"
+        "version": "1.18.1"
     },
 
     "position":{
@@ -24,8 +20,8 @@
 
     "utils":{
         "auto-auth":{
-            "enabled": true,
-            "password": "pongpang"
+            "enabled": false,
+            "password": "123456789"
         },
 
         "anti-afk":{
@@ -45,8 +41,6 @@
                 "Visit my GitHub page! (urFate/Afk-Bot)"
             ]
         },
-
-        
 
         "chat-log": true,
         "auto-reconnect": true,
