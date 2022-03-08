@@ -108,26 +108,11 @@ function createBot() {
 
   if (config.utils["auto-reconnect"]) {
     bot.on("end", function () {
-        
-      // console.log("\nกำลังจะเชื่อมต่อเซิร์ฟเวอร์ในอีก");
       var rdelay = config.utils["delay"];
-      console.log("Is about to connect the server again in " + rdelay + " seconds");
+      countDown(rdelay);
       setTimeout(function () {
         createBot();
       }, rdelay * 1000);
-
-      // status(config.server.ip, config.server.port, (response) => {
-      //   if ((response.status == true)) {
-      //     console.log("เซิร์ฟเวอร์ออนไลน์");
-      //     createBot();
-      //   } else {
-      //     console.log("\x1b[31m",`เซิร์ฟเวอร์ออฟไลน์`,"\x1b[0m");
-      //     console.log("กำลังจะเชื่อมต่อเซิร์ฟเวอร์ในอีก " + rdelay + " วินาที");
-      //     // countDown(rdelay);
-          
-      //   }
-      // });
-      
     })
   }
 
