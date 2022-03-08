@@ -1,12 +1,16 @@
 {
     "bot-account":{ 
-        "username": "bot",
+        "username": "_pongpang_",
         "password": "",
-        "type": "mojang"
+        "type": ""
+    },
+
+    "reconnect":{ 
+        "delay": 60
     },
 
     "server":{
-        "ip": "localhost",
+        "ip": "Eternitycraft.online",
         "port": 25565,
         "version": "1.17.1"
     },
@@ -20,8 +24,8 @@
 
     "utils":{
         "auto-auth":{
-            "enabled": false,
-            "password": "12345678"
+            "enabled": true,
+            "password": "pongpang"
         },
 
         "anti-afk":{
@@ -42,7 +46,11 @@
             ]
         },
 
+        
+
         "chat-log": true,
-        "auto-reconnect": false
+        "auto-reconnect": true,
+        "delay": 120
+        
     }
 }
