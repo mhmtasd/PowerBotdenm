@@ -44,9 +44,8 @@
 
         "chat-log": true,
         "auto-reconnect": true,
-        "delay": 120, //reconnect when bot disconnect
-
-        "timeout": 7200 //for disconnect bot because idk way to clear ram of nodejs while it run
+        "delay": 120,
+        "timeout": 7200
         
     }
 }
