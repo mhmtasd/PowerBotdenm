@@ -1,5 +1,6 @@
 # PowerBot fork from urFate/Afk Bot
 fork form <a href="https://github.com/urFate/Afk-Bot" target="_blank">urFate/Afk-bot</a> thank a lot of urFate!
+[go](http://stackoverflow.com){:target="_blank"}.
 <p align="center"> 
     <img src="https://img.shields.io/github/issues/urfate/afk-bot">
     <img src="https://img.shields.io/github/forks/urfate/afk-bot">
