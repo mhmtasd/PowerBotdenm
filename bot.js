@@ -6,13 +6,20 @@ const { GoalBlock } = require("mineflayer-pathfinder").goals;
 const config = require("./settings.json");
 
 function countDown(number) {
-  console.log("Is about to connect the server again in " + number + " seconds.");
-  if (number > 1) {
+  console.log("Is about to connect the server again in " + number + " seconds");
+  if (number > 0) {
       setTimeout(function(){
         countDown(number - 10);
       }, 10000)
-  } else {
-    console.log("\nConnect the server.\n");
+  }
+}
+
+function countDownMinutes(number) {
+  console.log("The bots will disconnect from the server in " + number / 60 + " minutes");
+    if (number > 0) {
+      setTimeout(function(){
+        countDown(number - 600);
+      }, 600000)
   }
 }
 
@@ -45,8 +52,18 @@ function createBot() {
       }, 500);
 
       console.log(`[Auth] Authentification commands executed.`)
-    }
+      const used = process.memoryUsage().heapUsed / 1024 / 1024;
+      console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB\n`);
 
+      var timeout = config.utils["timeout"];
+      countDownMinutes(timeout);
+      setTimeout(function () {
+        console.log("The bots have been disconnected");
+        bot.end();
+      }, timeout * 1000);
+    }
+    
+    
     if (config.utils["chat-messages"].enabled) {
       console.log("[INFO] Started chat-messages module");
       var messages = config.utils["chat-messages"]["messages"];
@@ -89,7 +106,7 @@ function createBot() {
 
   bot.on("chat", function (username, message) {
     if (config.utils["chat-log"]) {
-      console.log(`[แชท] <${username}> ${message}`);
+      console.log(`[ChatLog] <${username}> ${message}`);
     }
   });
 
@@ -111,6 +128,7 @@ function createBot() {
       var rdelay = config.utils["delay"];
       countDown(rdelay);
       setTimeout(function () {
+        console.log("Connect the server");
         createBot();
       }, rdelay * 1000);
     })
