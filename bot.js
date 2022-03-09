@@ -7,18 +7,18 @@ const config = require("./settings.json");
 
 function countDown(number) {
   console.log("Is about to connect the server again in " + number + " seconds");
-  if (number > 0) {
+  if (number > 1) {
       setTimeout(function(){
         countDown(number - 10);
       }, 10000)
   }
 }
 
-function countDownMinutes(number) {
-  console.log("The bots will disconnect from the server in " + number / 60 + " minutes");
-    if (number > 0) {
+function countDownMinutes(numberM) {
+  console.log("The bots will disconnect from the server in " + numberM / 60 + " minutes");
+    if (numberM > 1) {
       setTimeout(function(){
-        countDown(number - 600);
+        countDown(numberM - 600);
       }, 600000)
   }
 }
