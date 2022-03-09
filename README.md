@@ -1,4 +1,5 @@
-# Afk Bot
+# Power Bot fork from urFate/Afk Bot thank a lot of
+fork form <a href="https://github.com/urFate/Afk-Bot">urFate/Afk-bot</a>
 <p align="center"> 
     <img src="https://img.shields.io/github/issues/urfate/afk-bot">
     <img src="https://img.shields.io/github/forks/urfate/afk-bot">
