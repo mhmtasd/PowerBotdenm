@@ -23,6 +23,16 @@ function countDownMinutes(numberM) {
   }
 }
 
+function disconnectBot() {
+  var timeout = config.utils["timeout"];
+      countDownMinutes(timeout);
+      setTimeout(function () {
+        console.log("The bots have been disconnected");
+        // bot.end();
+        process.exit();
+      }, timeout * 1000);
+}
+
 function createBot() {
   const bot = mineflayer.createBot({
     username: config["bot-account"]["username"],
@@ -55,12 +65,9 @@ function createBot() {
       const used = process.memoryUsage().heapUsed / 1024 / 1024;
       console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB\n`);
 
-      var timeout = config.utils["timeout"];
-      countDownMinutes(timeout);
-      setTimeout(function () {
-        console.log("The bots have been disconnected");
-        bot.end();
-      }, timeout * 1000);
+      //if want to use this function
+      disconnectBot();
+
     }
     
     
@@ -132,7 +139,7 @@ function createBot() {
         createBot();
       }, rdelay * 1000);
     })
-  }
+  } else 
 
   bot.on('kicked', (reason) => console.log('\x1b[33m',`[BotLog] Bot was kicked from the server. Reason: \n${reason}`, '\x1b[0m'))
   bot.on('error', err => console.log(`\x1b[31m[ERROR] ${err.message}`, '\x1b[0m'))
