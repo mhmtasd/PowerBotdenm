@@ -15,7 +15,7 @@ function countDown(number) {
 }
 
 function countDownMinutes(numberM) {
-  console.log("The bots will disconnect from the server in " + numberM / 60 + " minutes");
+  console.log("The bots will disconnect from the server in " + numberM / 60 / 60 + " hours");
     if (numberM > 0) {
       setTimeout(function(){
         countDownMinutes(numberM - 600);
@@ -62,8 +62,8 @@ function createBot() {
       }, 500);
 
       console.log(`[Auth] Authentification commands executed.`)
-      const used = process.memoryUsage().heapUsed / 1024 / 1024;
-      console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB\n`);
+      // const used = process.memoryUsage().heapUsed / 1024 / 1024;
+      // console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB\n`);
 
       //if want to use this function
       disconnectBot();
