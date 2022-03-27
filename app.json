@@ -1,0 +1,14 @@
+{
+    "name": "PowerBot",
+    "description": "Minecraft Afk Bot",
+    "keywords": [
+        "server",
+        "afk",
+        "bot"
+    ],
+    "env": {},
+    "website": "",
+    "repository": "https://github.com/PowerShop/PowerBot",
+    "logo": "",
+    "stack": "container"
+}
