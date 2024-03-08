@@ -1,12 +1,12 @@
 {
     "bot-account":{ 
-        "username": "bot",
+        "username": "EymenMarket",
         "password": "",
-        "type": ""
+        "type": "offline"
     },
 
     "server":{
-        "ip": "127.0.0.1",
+        "ip": "mc.skyblock.tc",
         "port": 25565,
         "version": "1.17.1"
     },
@@ -20,25 +20,25 @@
 
     "utils":{
         "auto-auth":{
-            "enabled": false,
-            "password": "123456789"
+            "enabled": true,
+            "password": "fake3"
         },
 
         "anti-afk":{
-            "enabled": false,
+            "enabled": true,
             "sneak": false
         },
 
         "chat-messages":{
-            "enabled": false,
+            "enabled": true,
             "repeat": true,
-            "repeat-delay": 60,
+            "repeat-delay": 5,
 
             "messages": [
-                "I'm a regular player ", 
-                "My owner is urFate_ ", 
-                "I want be alone ", 
-                "Visit my GitHub page! (urFate/Afk-Bot)"
+                "/skyblock", 
+                "/is", 
+                "", 
+                ""
             ]
         },
 
